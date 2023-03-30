@@ -1,22 +1,26 @@
 #include "main.h"
-
 /**
- * _strncat - concatenates two strings with at most n bytes from src
- * @dest: pointer to dest string
- * @src: pointer to src string
- * @n: number of bytes from src
- * Return: the pointer to dest
+ * _strcat - function to join two strings
+ * function ensures while src and dest are not at the null byte
+ * and equates src to dest to join them
+ * @src: string 1
+ * @dest: sring 2
+ * Return: char
  */
-
-char *_strncat(char *dest, char *src, int n)
+char *_strcat(char *dest, char *src)
 {
-	int i = 0, dest_len = 0;
+	char *s = dest;
 
-	while (dest[i++])
-		dest_len++;
-
-	for (i = 0; src[i] && i < n; i++)
-		dest[dest_len++] = src[i];
-
-	return (dest);
+	while (*dest != '\0')
+	{
+		dest++;
+	}
+	while (*src != '\0')
+	{
+		*dest = *src;
+		dest++;
+		src++;
+	}
+	*dest = '\0';
+	return (s);
 }
