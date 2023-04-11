@@ -1,24 +1,13 @@
 #include "main.h"
-
-
-
 /**
- * _isdigit - checks for a digit (0 theough 9)
- * @num: int to be checked
- * Return: 1 if num is a digit, 0 otherwise.
- *
+ * _isdigit - check if c is a number or a letter
+ * @c: item check
+ * Return: 1 if c is a number else 0.
  */
-
-
-
-int _isdigit(int num)
-
-
-
+int _isdigit(int c)
 {
-
-	return (num >= '0' && num <= '9');
-
-
-
+	if (c >= '0' && c <= '9')
+		return (1);
+	else
+		return (0);
 }

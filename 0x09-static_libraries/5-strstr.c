@@ -1,36 +1,30 @@
+#include "main.h"
 /**
- * _strstr - a function that locates a substring
- *
- * @haystack: input string to search for matching
- * substrings
- * @needle: subtring to search for
- *
- * Return: a pointer to the beginning
- * of the located substring or
- * NULL if substring is not found
+ * _strstr - find the first appearance of needle
+ * @needle: what we need to find
+ * @haystack: where we need to find the needle
+ * Return: location or null
  */
-
 char *_strstr(char *haystack, char *needle)
 {
-	/**
-	 * we initialize a helping variable
-	 * to assist in returning one of
-	 * our parameters pointers haystack
-	 */
-	char *h, *n;
+	unsigned int dry = 0, shiny = 0;
 
-	while (*haystack != '\0')
+	while (haystack[dry])
 	{
-		h = haystack;
-		n = needle;
-		while (*n != '\0' && *haystack == *n)
+		while (needle[shiny] && (haystack[dry] == needle[0]))
 		{
-			haystack++;
-			n++;
+			if (haystack[dry + shiny] == needle[shiny])
+				shiny++;
+			else
+				break;
 		}
-		if (!*n)
-			return (h);
-		haystack++;
+		if (needle[shiny])
+		{
+			dry++;
+			shiny = 0;
+		}
+		else
+			return (haystack + dry);
 	}
-	return ('\0');
+	return (0);
 }
