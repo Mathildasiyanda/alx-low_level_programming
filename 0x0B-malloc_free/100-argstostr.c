@@ -2,42 +2,37 @@
 #include <stdlib.h>
 
 /**
- * argstostr - Concatenates all arguments of our program into a string.
- * @ac: The number of arguments passed
- * @av: An array of pointers to the arguments.
- *
- * Return: NULL if function fails, else, pointer to the new string.
+ * argstostr - check the code for ALX School students.
+ * @ac: integer
+ * @av: character
+ * Return: Null or string.
  */
 char *argstostr(int ac, char **av)
 {
-	char *new_string;
-	int arg, content, count, length;
+	int i, j, l, buffL;
+	char *p;
 
 	if (ac == 0 || av == NULL)
-		return (NULL);
-
-	for (arg = 0; arg < ac; arg++)
 	{
-		for (content = 0; av[arg][content]; content++)
-			length++;
-	}
-
-	new_string = malloc(sizeof(char) * length + 1);
-
-	if (new_string == NULL)
 		return (NULL);
-
-	count = 0;
-
-	for (arg = 0; arg < ac; arg++)
-	{
-		for (content = 0; av[arg][content]; content++)
-			new_string[count++] = av[arg][content];
-
-		new_string[count++] = '\n';
 	}
+	i = j = l  = buffL = 0;
 
-	new_string[length] = '\0';
-
-	return (new_string);
+	for (i = 0; av[i]; i++)
+	{
+		for (j = 0; av[i][j]; j++)
+			l++;
+	}
+	p = (char *) malloc(l * sizeof(char) + ac + 1);
+	if (p == NULL)
+		return (NULL);
+	for (i = 0; av[i]; i++)
+	{
+		for (j = 0; av[i][j]; j++, buffL++)
+			p[buffL] = av[i][j];
+		p[buffL] = '\n';
+		buffL++;
+	}
+	p[buffL] = '\0';
+	return (p);
 }
