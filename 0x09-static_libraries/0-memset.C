@@ -1,19 +1,21 @@
 #include "main.h"
+
 /**
- * _memset - input bytes to s
- * @s: initial address to be filled
- * @b: content
- * @n: number of bytes to be filled in s
- * Return: s
- */
+ * _memset - function that fill memory
+ * @s: character
+ * @b: replace
+ * @n: number
+ * Return: return a pointer to a memory
+*/
+
 char *_memset(char *s, char b, unsigned int n)
 {
-	int value;
+	unsigned int i;
 
-	for (value = 0; n > 0; value++)
+	for (i = 0; i < n; i++)
 	{
-		s[value] = b;
-		n--;
+	s[i] = b;
 	}
+
 	return (s);
 }
